@@ -19,7 +19,7 @@ function App() {
         {/* :변수명 */}
         <Route path="/movie/:id" element={<Detail />} />
         {/* Home Route rendering */}
-        <Route path="/" element={<Home />} />
+        <Route path={process.env.PUBLIC_URL + "/"} element={<Home />} />
       </Routes>
     </Router>
   );
