@@ -15,11 +15,11 @@ function App() {
       {/* Routes는 Route를 찾아 한 번에 하나의 component만 rendering 한다. */}
       {/* Route는 http://localhost:3000/movies/123 에서 movies/123을 의미한다. */}
       <Routes>
-        <Route path="/hello" element={<h1>Hello</h1>} />
+        <Route path={`${process.env.PUBLIC_URL}/hello`} element={<h1>Hello</h1>} />
         {/* :변수명 */}
-        <Route path="/movie/:id" element={<Detail />} />
+        <Route path={`${process.env.PUBLIC_URL}/movie/:id`} element={<Detail />} />
         {/* Home Route rendering */}
-        <Route path={process.env.PUBLIC_URL + "/"} element={<Home />} />
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
       </Routes>
     </Router>
   );
