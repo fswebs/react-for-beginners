@@ -11,7 +11,7 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       {/* Routes는 Route를 찾아 한 번에 하나의 component만 rendering 한다. */}
       {/* Route는 http://localhost:3000/movies/123 에서 movies/123을 의미한다. */}
       <Routes>
