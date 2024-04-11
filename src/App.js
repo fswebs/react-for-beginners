@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// https://reactrouter.com/en/6.22.3/start/overview
+// BrowerRouter의 경우 http://localhost:3000, http://localhost:3000/movie
+// link는 브라우저 새로고침 없이 다른 페이지로 이동시켜준다.
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './routes/Home';
+import Detail from "./routes/Detail";
+
+// Movie App
+// https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year
+// 페이지 전환 방법
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Routes는 Route를 찾아 한 번에 하나의 component만 rendering 한다. */}
+      {/* Route는 http://localhost:3000/movies/123 에서 movies/123을 의미한다. */}
+      <Routes>
+        <Route path="/hello" element={<h1>Hello</h1>} />
+        {/* :변수명 */}
+        <Route path="/movie/:id" element={<Detail />} />
+        {/* Home Route rendering */}
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
